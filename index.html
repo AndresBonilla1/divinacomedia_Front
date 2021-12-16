@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Este es el Frontend del reto 2 ciclo 4">
+        <meta name="author" content="Andres Felipe Bonilla Canizales">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/app.css">
+        <title>Inicio de Sesión</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <header>
+                <div class="row">
+                    <img id="logo" src="./img/logo_empresa.png" alt="Logo" class="logo img-fluid mx-auto d-block">
+                </div>
+            </header>
+            <!--Seccion de Login-->
+            <section id="loginSection">
+                <div class="row">
+                    <div class="form">
+                        <div class="row justify-content-center">
+                            <div class="imgcontainer text-center">
+                                <img src="./img/img_avatar2.png" alt="Avatar" class="avatar rounded-circle img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-4 mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-4 mb-3">
+                                <label for="contrasena" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="contrasena" placeholder="myPassword">
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-4 mb-3 d-grid gap-2">
+                                <button type="button" class="btn btn-success" id="btnLogin">Login</button>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-4 mb-3 d-grid gap-2">
+                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalUsuarioLogin">Crear cuenta</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Inicia mi modal de registro-->
+        <div class="modal fade" id="modalUsuarioLogin" tabindex="-1" aria-labelledby="modalUserLabelLogin" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalUserLabelLogin">Registrar usuario</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+    
+                    <div class="modal-body">
+                        <form>
+                            <div class="row mb-3">
+                                <label>Los campos con <span class="badge bg-info">*</span> son obligatorios.</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="identificacionRegistroLogin" class="form-label">Identificación:</label>
+                                <input type="number" class="form-control" id="identificacionRegistroLogin" placeholder="1234"
+                                    oninput="limitandoCaracteres(this, 20)">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="nombreRegistroLogin" class="form-label"><span class="badge bg-info">*</span>
+                                    Nombre:</label>
+                                <input type="text" class="form-control" id="nombreRegistroLogin" placeholder="Mi nombre"
+                                    maxlength="80">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="emailRegistroLogin" class="form-label"><span class="badge bg-info">*</span>
+                                    Email:</label>
+                                <input type="email" class="form-control" id="emailRegistroLogin" placeholder="name@example.com"
+                                    maxlength="50">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="contrasenaRegistroLogin" class="form-label"><span class="badge bg-info">*</span>
+                                    Password:</label>
+                                <input type="password" class="form-control" id="contrasenaRegistroLogin" placeholder="myPassword"
+                                    maxlength="50">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="contrasenaRegistro2Login" class="form-label"><span class="badge bg-info">*</span>
+                                    Confirmar password:</label>
+                                <input type="password" class="form-control" id="contrasenaRegistro2Login"
+                                    placeholder="myPassword" maxlength="50">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="direccionRegistroLogin" class="form-label">Dirección:</label>
+                                <input type="text" class="form-control" id="direccionRegistroLogin"
+                                    placeholder="Calle 20 #33-42">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="celularRegistroLogin" class="form-label">Celular:</label>
+                                <input type="tel" class="form-control" id="celularRegistroLogin" placeholder="3102345679"
+                                    maxlength="10">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="zonaRegistroLogin" class="form-label">Zona:</label>
+                                <select class="form-select" id="zonaRegistroLogin">
+                                    <option value="Suroccidente" selected>Suroccidente</option>
+                                    <option value="Suroriente">Suroriente</option>
+                                    <option value="Norte-Centro Historico">Norte-Centro Historico</option>
+                                    <option value="Metropolitana">Metropolitana</option>
+                                    <option value="Riomar">Riomar</option>
+                                    <option value="Soledad">Soledad</option>
+                                </select>
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="tipoRegistroLogin" class="form-label">Tipo:</label>
+                                <select class="form-select" id="tipoRegistroLogin">
+                                    <option value="ASE" selected>Asesor Comercial</option>
+                                    <option value="COORD">Coordinador de Zona</option>
+                                    <option value="ADM ">Administrador</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" id="btnRegistrarUsuarioLogin">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="./js/app.js"></script>
+    </body>
+</html>
